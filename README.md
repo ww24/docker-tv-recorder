@@ -1,6 +1,8 @@
 docker-tv-recorder
 ===
 
+[![Test on master](https://github.com/ww24/docker-tv-recorder/workflows/Test%20on%20master/badge.svg)](https://github.com/ww24/docker-tv-recorder/actions?query=workflow%3A%22Test+on+master%22)
+
 ## Requirements
 - docker
 - direnv

@@ -1,0 +1,35 @@
+name: "Test on master"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: ["chinachu", "mirakurun"]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Find files
+        id: files
+        run: |
+          echo "::set-output name=sh::$(find . -name "*.sh" | xargs echo)"
+        working-directory: "./${{ matrix.service }}"
+      - name: Shellcheck
+        run: |
+          shellcheck ${{ steps.files.outputs.sh }}
+        working-directory: "./${{ matrix.service }}"
+        if: steps.files.outputs.sh
+      - name: Dockerfile Linter
+        run: |
+          docker run -v $(pwd):/working --rm hadolint/hadolint \
+          hadolint /working/Dockerfile \
+          --ignore DL3008 --ignore DL3016 --ignore DL3003
+        working-directory: "./${{ matrix.service }}"
+      - name: Build docker image
+        run: docker-compose build
+        working-directory: "./${{ matrix.service }}"

@@ -1,0 +1,13 @@
+# https://github.com/Chinachu/Mirakurun/blob/master/doc/Configuration.md
+
+- name: PX-S1UD-1
+  types:
+    - GR
+  command: recdvb --b25 --strip --dev 0 <channel> - -
+  isDisabled: false
+
+- name: PX-S1UD-2
+  types:
+    - GR
+  command: recdvb --b25 --strip --dev 1 <channel> - -
+  isDisabled: false

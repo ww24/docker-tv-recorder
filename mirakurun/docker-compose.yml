@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  mirakurun:
+    container_name: mirakurun
+    image: mirakurun-recdvb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "40772:40772"
+      - "41772:41772"
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - /var/run/pcscd/pcscd.comm:/var/run/pcscd/pcscd.comm
+      - mirakurun_db:/usr/local/var/db/mirakurun
+      - log:/usr/local/var/log
+    devices:
+      - /dev/dvb:/dev/dvb
+    restart: always
+    cap_add:
+      - SYS_ADMIN
+      - SYS_NICE
+volumes:
+  mirakurun_db:
+    driver: local
+  log:
+    driver: local

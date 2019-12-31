@@ -1,0 +1,19 @@
+{
+    "uid": 0,
+    "gid": "root",
+    "mirakurunPath": "/* to be updated by service.sh */",
+    "vaapiEnabled": true,
+    "vaapiDevice": "/dev/dri/renderD128",
+    "excludeServices": [],
+    "serviceOrder": [],
+    "recordedDir": "./video/recorded/",
+    "temporaryDir": "/tmp",
+    "recordedFormat": "[<date:yy-mm-dd_HHMM>][<channel-name>]<title>.m2ts",
+    "recordedCommand": "/usr/local/bin/recordedCommand.sh",
+    "wuiOpenServer": true,
+    "wuiOpenPort": 20772,
+    "storageLowSpaceThresholdMB": 3000,
+    "storageLowSpaceAction": "remove",
+    "storageLowSpaceNotifyTo": null,
+    "storageLowSpaceCommand": ""
+}

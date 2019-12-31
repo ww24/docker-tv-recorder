@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  chinachu:
+    container_name: chinachu
+    image: chinachu-ffmpeg-vaapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      TZ: Asia/Tokyo
+      MIRAKURUN_PATH: "${MIRAKURUN_PATH}"
+      DOCKER_HOST: "${DOCKER_HOST}"
+    ports:
+      - "5353:5353"
+      - "10772:10772"
+      - "20772:20772"
+    volumes:
+      - /volume1/cornet/chinachu/rules.json:/usr/local/chinachu/rules.json
+      - /volume1/cornet/chinachu/data:/usr/local/chinachu/data
+      - /volume1/video:/usr/local/chinachu/video
+    tmpfs:
+      - /tmp
+    devices:
+      - /dev/dri:/dev/dri
+    restart: always

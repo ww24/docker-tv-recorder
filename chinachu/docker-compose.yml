@@ -9,15 +9,14 @@ services:
     environment:
       TZ: Asia/Tokyo
       MIRAKURUN_PATH: "${MIRAKURUN_PATH}"
-      DOCKER_HOST: "${DOCKER_HOST}"
     ports:
       - "5353:5353"
       - "10772:10772"
       - "20772:20772"
     volumes:
-      - /volume1/cornet/chinachu/rules.json:/usr/local/chinachu/rules.json
-      - /volume1/cornet/chinachu/data:/usr/local/chinachu/data
-      - /volume1/video:/usr/local/chinachu/video
+      - ${RULES_PATH}:/usr/local/chinachu/rules.json
+      - ${DATA_PATH}:/usr/local/chinachu/data
+      - ${VIDEO_PATH}:/usr/local/chinachu/video
     tmpfs:
       - /tmp
     devices:

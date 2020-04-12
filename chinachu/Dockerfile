@@ -1,4 +1,4 @@
-FROM node:12.13.1-buster AS build
+FROM node:12-buster AS build
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -10,10 +10,6 @@ RUN echo 2 | ./chinachu installer \
     && ./chinachu service operator initscript > /etc/init.d/chinachu-operator \
     && ./chinachu service wui initscript > /etc/init.d/chinachu-wui \
     && chmod u+x /etc/init.d/chinachu-operator /etc/init.d/chinachu-wui
-
-RUN curl https://download.docker.com/linux/static/stable/x86_64/docker-18.09.9.tgz | tar xzvf - \
-    && cp docker/* /usr/local/bin \
-    && rm -rf docker
 
 
 FROM jrottenberg/ffmpeg:4.1-vaapi
@@ -28,7 +24,6 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=build /usr/local/bin/docker /usr/local/bin/docker
 COPY --from=build /etc/init.d/chinachu-* /etc/init.d/
 COPY --from=build /usr/local/chinachu/ /usr/local/chinachu/
 COPY services.sh /usr/local/bin/

@@ -12,11 +12,13 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - /var/run/pcscd/pcscd.comm:/var/run/pcscd/pcscd.comm
       - mirakurun_db:/usr/local/var/db/mirakurun
       - log:/usr/local/var/log
+    tmpfs:
+      - /run
     devices:
       - /dev/dvb:/dev/dvb
+      - /dev/bus/usb:/dev/bus/usb
     restart: always
     cap_add:
       - SYS_ADMIN

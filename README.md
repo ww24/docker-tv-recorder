@@ -6,7 +6,6 @@ docker-tv-recorder
 ## Requirements
 - docker
 - direnv
-- pcscd (Mirakurun)
 
 ## Usage
 
@@ -25,7 +24,11 @@ docker-compose up -d
 
 - `.envrc` の `DOCKER_HOST` の値には `tcp://${DOCKER_HOST_IP}:2375` を指定します。
   - `docker-compose` を実行するマシンと同一であれば不要です。
-- host に B-CAS カードが挿入されたカードリーダーが接続されていて、 pcscd によって認識されている必要があります。
+- ホストにチューナーを接続しドライバーをインストールしておく必要があります。
+  - [PX-S1UD](http://www.plex-net.co.jp/product/px-s1udv2/) で動作確認しています。
+- ホストに B-CAS カードを挿入したカードリーダーが接続されている必要があります。
+  - カードリーダーによっては別途ドライバーのインストールが必要です。
+  - ホストに pcscd は不要になりました。起動している場合は競合するため停止してください。
 
 ```
 docker-compose build

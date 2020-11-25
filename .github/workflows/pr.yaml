@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: ["chinachu", "mirakurun"]
+        service: ["chinachu"]
     steps:
       - uses: actions/checkout@v1
       - name: Find files

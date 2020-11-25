@@ -3,11 +3,15 @@
 - name: PX-S1UD-1
   types:
     - GR
-  command: recdvb --b25 --strip --dev 0 <channel> - -
+  command: dvbv5-zap -a 0 -c ./config/dvbconf-for-isdb/conf/dvbv5_channels_isdbt.conf -r -P <channel>
+  dvbDevicePath: /dev/dvb/adapter0/dvr0
+  decoder: arib-b1-stream-test
   isDisabled: false
 
 - name: PX-S1UD-2
   types:
     - GR
-  command: recdvb --b25 --strip --dev 1 <channel> - -
+  command: dvbv5-zap -a 1 -c ./config/dvbconf-for-isdb/conf/dvbv5_channels_isdbt.conf -r -P <channel>
+  dvbDevicePath: /dev/dvb/adapter1/dvr0
+  decoder: arib-b1-stream-test
   isDisabled: false

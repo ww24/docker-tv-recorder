@@ -2,29 +2,28 @@ version: "3.7"
 services:
   mirakurun:
     container_name: mirakurun
-    image: mirakurun-recdvb
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "40772:40772"
-      - "41772:41772"
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - mirakurun_db:/usr/local/var/db/mirakurun
-      - log:/usr/local/var/log
-    tmpfs:
-      - /run
-    devices:
-      - /dev/dvb:/dev/dvb
-      - /dev/bus/usb:/dev/bus/usb
-    restart: always
+    image: chinachu/mirakurun:3.3.1
     cap_add:
       - SYS_ADMIN
       - SYS_NICE
-volumes:
-  mirakurun_db:
-    driver: local
-  log:
-    driver: local
+    environment:
+      TZ: Asia/Tokyo
+      # LOG_LEVEL: "3"
+      # DEBUG: "true"
+    ports:
+      - 40772:40772
+      - 9229:9229
+    devices:
+      - /dev/bus:/dev/bus
+      - /dev/dvb:/dev/dvb
+    volumes:
+      - /usr/local/mirakurun/run/:/var/run/
+      - /usr/local/mirakurun/opt/:/opt/
+      - ./config/:/app-config/
+      - /usr/local/mirakurun/data/:/app-data/
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 10m

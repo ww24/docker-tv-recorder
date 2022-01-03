@@ -3,8 +3,6 @@
 # logLevel: <number>
 logLevel: 2
 
-maxLogHistory: 3000 # integer (lines)
-
 # path: <string>
 path: /var/run/mirakurun.sock
 
@@ -14,12 +12,3 @@ path: /var/run/mirakurun.sock
 # Use this in LAN or VPN.
 # `~` to disable TCP port listening.
 port: 40772
-
-disableIPv6: false # boolean
-highWaterMark: 67108864 # integer (bytes)
-overflowTimeLimit: 30000 # integer (ms)
-maxBufferBytesBeforeReady: 8388608 # integer (bytes)
-eventEndTimeout: 1000 # integer (ms)
-programGCInterval: 900000 # integer (ms)
-epgGatheringInterval: 900000 # integer (ms)
-epgRetrievalTime: 600000 # integer (ms)

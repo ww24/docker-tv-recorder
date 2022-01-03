@@ -2,7 +2,7 @@ version: "3.7"
 services:
   mirakurun:
     container_name: mirakurun
-    image: chinachu/mirakurun:3.3.1
+    image: chinachu/mirakurun:3.8.0
     cap_add:
       - SYS_ADMIN
       - SYS_NICE

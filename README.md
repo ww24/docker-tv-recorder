@@ -12,18 +12,18 @@ docker-tv-recorder
 ### chinachu
 
 - `.envrc` の `DOCKER_HOST` の値には `tcp://${DOCKER_HOST_IP}:2375` を指定します。
-  - `docker-compose` を実行するマシンと同一であれば不要です。
+  - `docker compose` を実行するマシンと同一であれば不要です。
 - `.env` の `MIRAKURUN_PATH` の値には Mirakurun の API のエンドポイントを指定します。
 
 ```
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 ```
 
 ### mirakurun
 
 - `.envrc` の `DOCKER_HOST` の値には `tcp://${DOCKER_HOST_IP}:2375` を指定します。
-  - `docker-compose` を実行するマシンと同一であれば不要です。
+  - `docker compose` を実行するマシンと同一であれば不要です。
 - ホストにチューナーを接続しドライバーをインストールしておく必要があります。
   - [PX-S1UD](http://www.plex-net.co.jp/product/px-s1udv2/) で動作確認しています。
 - ホストに B-CAS カードを挿入したカードリーダーが接続されている必要があります。
@@ -31,8 +31,8 @@ docker-compose up -d
   - ホストに pcscd は不要になりました。起動している場合は競合するため停止してください。
 
 ```
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 ```
 
 ## References

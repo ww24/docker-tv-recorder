@@ -12,7 +12,7 @@ RUN echo 2 | ./chinachu installer \
     && chmod u+x /etc/init.d/chinachu-operator /etc/init.d/chinachu-wui
 
 
-FROM jrottenberg/ffmpeg:4.1-vaapi
+FROM jrottenberg/ffmpeg:4.4-vaapi
 
 ENV DOCKER=YES
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

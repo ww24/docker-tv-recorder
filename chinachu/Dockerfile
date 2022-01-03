@@ -1,4 +1,4 @@
-FROM node:12-buster AS build
+FROM node:14-buster AS build
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -20,7 +20,7 @@ WORKDIR /usr/local/chinachu
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl tzdata jq \
-    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && apt-get install -y --no-install-recommends nodejs \
     && rm -rf /var/lib/apt/lists/*
 

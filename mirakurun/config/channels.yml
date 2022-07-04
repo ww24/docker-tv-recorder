@@ -2,7 +2,11 @@
 
 - name: MX
   type: GR
-  channel: "20"
+  channel: "16"
+
+- name: TVK
+  type: GR
+  channel: "18"
 
 - name: CX
   type: GR
@@ -31,3 +35,11 @@
 - name: NHK G
   type: GR
   channel: "27"
+
+- name: CTC
+  type: GR
+  channel: "30"
+
+- name: TVS
+  type: GR
+  channel: "32"

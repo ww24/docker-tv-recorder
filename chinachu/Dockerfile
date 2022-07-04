@@ -2,7 +2,7 @@ FROM node:14-buster AS build
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN git clone --depth 1 git://github.com/Chinachu/Chinachu.git /usr/local/chinachu
+RUN git clone --depth 1 https://github.com/Chinachu/Chinachu.git /usr/local/chinachu
 
 WORKDIR /usr/local/chinachu
 RUN echo 2 | ./chinachu installer \
